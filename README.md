@@ -6,4 +6,5 @@
 - data types
 - ownership
 - structs
+- enums
 

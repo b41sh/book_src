@@ -2,6 +2,7 @@ use learn::basic::variables;
 use learn::basic::data_types;
 use learn::basic::ownership;
 use learn::basic::structs;
+use learn::basic::enums;
 
 fn main() {
     variables::var_test();
@@ -15,5 +16,7 @@ fn main() {
     ownership::slice_test();
 
     structs::struct_test();
+
+    enums::enum_test();
 }
 
