@@ -3,6 +3,8 @@ use learn::basic::data_types;
 use learn::basic::ownership;
 use learn::basic::structs;
 use learn::basic::enums;
+use learn::basic::errors;
+use learn::basic::generics;
 
 fn main() {
     variables::var_test();
@@ -18,5 +20,9 @@ fn main() {
     structs::struct_test();
 
     enums::enum_test();
+
+    errors::error_test();
+
+    generics::generic_test()
 }
 

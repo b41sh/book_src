@@ -7,4 +7,5 @@
 - ownership
 - structs
 - enums
-
+- errors
+- generics
