@@ -5,6 +5,7 @@ use learn::basic::structs;
 use learn::basic::enums;
 use learn::basic::errors;
 use learn::basic::generics;
+use learn::basic::traits;
 
 fn main() {
     variables::var_test();
@@ -23,6 +24,8 @@ fn main() {
 
     errors::error_test();
 
-    generics::generic_test()
+    generics::generic_test();
+
+    traits::trait_test();
 }
 

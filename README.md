@@ -9,3 +9,4 @@
 - enums
 - errors
 - generics
+- traits
