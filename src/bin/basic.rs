@@ -6,6 +6,7 @@ use learn::basic::enums;
 use learn::basic::errors;
 use learn::basic::generics;
 use learn::basic::traits;
+use learn::basic::lifetime;
 
 fn main() {
     variables::var_test();
@@ -27,5 +28,7 @@ fn main() {
     generics::generic_test();
 
     traits::trait_test();
+
+    lifetime::lifetime_test();
 }
 

@@ -6,4 +6,5 @@ pub mod enums;
 pub mod errors;
 pub mod generics;
 pub mod traits;
+pub mod lifetime;
 
