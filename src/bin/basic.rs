@@ -7,6 +7,7 @@ use learn::basic::errors;
 use learn::basic::generics;
 use learn::basic::traits;
 use learn::basic::lifetime;
+use learn::basic::closures;
 
 fn main() {
     variables::var_test();
@@ -30,5 +31,7 @@ fn main() {
     traits::trait_test();
 
     lifetime::lifetime_test();
+
+    closures::closure_test();
 }
 

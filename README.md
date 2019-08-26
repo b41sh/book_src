@@ -11,3 +11,4 @@
 - generics
 - traits
 - lifetime
+- closures

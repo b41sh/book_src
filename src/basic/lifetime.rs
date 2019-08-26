@@ -36,6 +36,14 @@ pub fn lifetime_test() {
     let w = first_word(s);
     println!("first word = {}", w);
 
+    //let xx = String::from("aaa");
+    let xx = "aaa";
+    //{
+        let yy = xx;
+        println!("yy = {}", yy);
+    //}
+    println!("xx = {}", xx);
+
 }
 
 // 需要指定参数的生命期，不知道哪个值会返回
