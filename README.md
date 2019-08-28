@@ -16,4 +16,5 @@
 ### modules
 
 #### collections
-- vec
+- Vec
+- VecDeque

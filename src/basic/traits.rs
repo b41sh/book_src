@@ -56,7 +56,16 @@ pub fn trait_test() {
     println!("tweet summarize = {}", tweet.summarize());
 
     notify(news_article);
-    notify(tweet);
+    notify2(tweet);
+
+    let tweet2 = Tweet {
+        username: String::from("baishen"),
+        content: String::from("test tweet2"),
+        replay: false,
+        retweet: false,
+    };
+    notify3(tweet2);
+
 }
 
 // trait 作为参数
@@ -68,3 +77,10 @@ fn notify(item: impl Summary) {
 fn notify2<T: Summary>(item: T) {
     println!("news = {}", item.summarize());
 }
+
+// 通过where简化代码
+fn notify3<T>(item: T)
+    where T: Summary {
+    println!("news = {}", item.summarize());
+}
+
