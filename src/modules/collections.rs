@@ -1,5 +1,6 @@
 use std::vec::Vec;
 use std::collections::VecDeque;
+use std::collections::LinkedList;
 
 pub fn vec_test() {
     println!("{}", "-----------vec_test--------------------");
@@ -94,5 +95,61 @@ pub fn vecdeque_test() {
     vec.swap(0, 2);
     assert_eq!(vec, [3, 7, 1]);
     assert!(vec.capacity() >= 3);
+
+}
+
+pub fn linkedlist_test() {
+    println!("{}", "-----------LinkedList_test--------------------");
+
+    let mut list1 = LinkedList::new();
+    list1.push_back(1);
+    list1.push_back(2);
+
+    let mut list2 = LinkedList::new();
+    list2.push_back(3);
+    list2.push_back(4);
+
+    list1.append(&mut list2);
+
+    println!("list1 = {:#?}", list1);
+    // list2 is empty
+    println!("list2 = {:#?}", list2);
+
+    // forward iterator
+    let mut iter = list1.iter();
+    assert_eq!(iter.next(), Some(&1));
+    assert_eq!(iter.next(), Some(&2));
+    assert_eq!(iter.next(), Some(&3));
+    assert_eq!(iter.next(), Some(&4));
+    assert_eq!(iter.next(), None);
+
+    assert!(!list1.is_empty());
+    assert!(list2.is_empty());
+
+    assert_eq!(list1.len(), 4);
+
+    assert_eq!(list1.contains(&1), true);
+
+    assert_eq!(list1.front(), Some(&1));
+    assert_eq!(list1.back(), Some(&4));
+
+    list1.clear();
+    assert_eq!(list1.len(), 0);
+
+    list1.push_front(0);
+    println!("list1 = {:#?}", list1);
+    assert_eq!(list1.pop_front(), Some(0));
+
+    list1.push_back(5);
+    println!("list1 = {:#?}", list1);
+    assert_eq!(list1.pop_back(), Some(5));
+
+    list1.push_front(1);
+    list1.push_front(2);
+    list1.push_front(3);
+
+    let splitted = list1.split_off(2);
+    println!("list1 = {:#?}", list1);
+    println!("splitted = {:#?}", splitted);
 
 }

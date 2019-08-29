@@ -18,3 +18,4 @@
 #### collections
 - Vec
 - VecDeque
+- LinkedList
