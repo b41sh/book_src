@@ -1,6 +1,7 @@
 use std::vec::Vec;
 use std::collections::VecDeque;
 use std::collections::LinkedList;
+use std::collections::HashMap;
 
 pub fn vec_test() {
     println!("{}", "-----------vec_test--------------------");
@@ -152,4 +153,56 @@ pub fn linkedlist_test() {
     println!("list1 = {:#?}", list1);
     println!("splitted = {:#?}", splitted);
 
+}
+
+pub fn hashmap_test() {
+    println!("{}", "-----------HashMap_test--------------------");
+    let mut map1 = HashMap::new();
+    map1.insert(1, "val1".to_string());
+    println!("map1 = {:#?}", map1);
+
+    // 借用数据
+    //error[E0308]: mismatched types
+    // note: expected type `&{integer}` found type `{integer}`
+    // help: consider borrowing here: `&1`
+    //assert!(map1.contains_key(1));
+    assert!(map1.contains_key(&1));
+    assert!(!map1.contains_key(&2));
+    assert!(!map1.is_empty());
+
+    map1.insert(2, "val2".to_string());
+    map1.insert(3, "val3".to_string());
+
+    println!("capacity = {:#?}", map1.capacity());
+    println!("len = {:#?}", map1.len());
+
+    // 获取keys
+    for key in map1.keys() {
+        println!("key = {:#?}", key);
+    }
+
+    // 获取values
+    for val in map1.values() {
+        println!("val = {:#?}", val);
+    }
+
+    // 可变values
+    for val in map1.values_mut() {
+        *val = "abc".to_string();
+        println!("val = {:#?}", val);
+    }
+
+    // 遍历
+    for (key, val) in map1.iter() {
+        println!("key: {} val: {}", key, val);
+    }
+
+    for (_, val) in map1.iter_mut() {
+        *val = "xyz".to_string();
+        println!("val = {:#?}", val);
+    }
+
+    for (key, val) in &map1 {
+        println!("key: {} val: {}", key, val);
+    }
 }

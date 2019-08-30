@@ -4,5 +4,6 @@ fn main() {
     collections::vec_test();
     collections::vecdeque_test();
     collections::linkedlist_test();
+    collections::hashmap_test();
 
 }

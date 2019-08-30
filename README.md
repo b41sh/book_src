@@ -19,3 +19,4 @@
 - Vec
 - VecDeque
 - LinkedList
+- HashMap
