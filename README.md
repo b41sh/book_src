@@ -20,3 +20,7 @@
 - VecDeque
 - LinkedList
 - HashMap
+- BTreeMap
+- HashSet
+- BTreeSet
+

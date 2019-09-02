@@ -2,6 +2,9 @@ use std::vec::Vec;
 use std::collections::VecDeque;
 use std::collections::LinkedList;
 use std::collections::HashMap;
+use std::collections::BTreeMap;
+use std::collections::HashSet;
+use std::collections::BTreeSet;
 
 pub fn vec_test() {
     println!("{}", "-----------vec_test--------------------");
@@ -205,4 +208,99 @@ pub fn hashmap_test() {
     for (key, val) in &map1 {
         println!("key: {} val: {}", key, val);
     }
+}
+
+pub fn btreemap_test() {
+    println!("{}", "-----------BTreeMap_test--------------------");
+    let mut map1 = BTreeMap::new();
+    map1.insert(1, "val1");
+
+    println!("map1: {:#?}", map1);
+    assert_eq!(map1.get(&1), Some(&"val1"));
+    assert_eq!(map1.get(&2), None);
+
+    assert_eq!(map1.contains_key(&1), true);
+    assert_eq!(map1.contains_key(&2), false);
+
+    if let Some(x) = map1.get_mut(&1) {
+        *x = "valx";
+    }
+    assert_eq!(map1.get(&1), Some(&"valx"));
+    map1.remove(&1);
+    assert_eq!(map1.get(&1), None);
+
+    map1.insert(3, "val3");
+    map1.insert(1, "val1");
+    map1.insert(5, "val5");
+    for (key, val) in map1.iter() {
+        println!("key: {:#?}, val: {:#?}", key, val);
+    }
+    for (key, val) in map1.iter_mut() {
+        *val = "xxx";
+        println!("key: {:#?}, val: {:#?}", key, val);
+    }
+}
+
+pub fn hashset_test() {
+    println!("{}", "-----------HashSet_test--------------------");
+    let mut set1 = HashSet::new();
+    set1.insert(1);
+    set1.insert(2);
+    set1.insert(3);
+    println!("set1: {:#?}", set1);
+
+    assert_eq!(set1.contains(&1), true);
+    assert_eq!(set1.len(), 3);
+    assert_eq!(set1.is_empty(), false);
+
+    for val in set1.iter() {
+        println!("val: {:#?}", val);
+    }
+
+    for val in set1.drain() {
+        println!("val: {:#?}", val);
+    }
+    assert_eq!(set1.is_empty(), true);
+}
+
+pub fn btreeset_test() {
+    println!("{}", "-----------BTreeSet_test--------------------");
+    let mut set1 = BTreeSet::new();
+    set1.insert(1);
+    set1.insert(2);
+    set1.insert(3);
+    println!("set1: {:#?}", set1);
+
+    assert_eq!(set1.contains(&1), true);
+    assert_eq!(set1.len(), 3);
+    assert_eq!(set1.is_empty(), false);
+
+    for val in set1.iter() {
+        println!("val: {:#?}", val);
+    }
+
+    let mut set2 = BTreeSet::new();
+    set2.insert(3);
+    set2.insert(4);
+    set2.insert(5);
+
+    println!("diff: {:#?}", set1.difference(&set2));
+    println!("symmetric_diff: {:#?}", set1.symmetric_difference(&set2));
+    println!("intersection: {:#?}", set1.intersection(&set2));
+    println!("union: {:#?}", set1.union(&set2));
+    println!("is_disjoint: {:#?}", set1.is_disjoint(&set2));
+
+    let mut set3 = BTreeSet::new();
+    set3.insert(1);
+
+    let mut set4 = BTreeSet::new();
+    set4.insert(1);
+    set4.insert(2);
+    set4.insert(3);
+    set4.insert(4);
+
+    assert_eq!(set1.is_subset(&set4), true);
+    assert_eq!(set1.is_superset(&set3), true);
+
+
 }
