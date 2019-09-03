@@ -1,4 +1,5 @@
 use learn::modules::collections;
+use learn::modules::fs;
 
 fn main() {
     collections::vec_test();
@@ -8,5 +9,8 @@ fn main() {
     collections::btreemap_test();
     collections::hashset_test();
     collections::btreeset_test();
+
+    fs::dir_test();
+    fs::file_test();
 
 }
