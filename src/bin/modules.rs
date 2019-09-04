@@ -1,5 +1,6 @@
 use learn::modules::collections;
 use learn::modules::fs;
+use learn::modules::path;
 
 fn main() {
     collections::vec_test();
@@ -12,5 +13,7 @@ fn main() {
 
     fs::dir_test();
     fs::file_test();
+    
+    path::path_test();
 
 }
