@@ -1,6 +1,7 @@
 use learn::modules::collections;
 use learn::modules::fs;
 use learn::modules::path;
+use learn::modules::time;
 
 fn main() {
     collections::vec_test();
@@ -16,4 +17,5 @@ fn main() {
     
     path::path_test();
 
+    time::time_test();
 }
